@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', ['uses' => 'NewsController@index'])->name('home');
+
+Route::group(['prefix' => 'news'], function () {
+
+    // GET
+    Route::get('/create', ['uses' => 'NewsController@create'])->name('news.create');
+    Route::get('/manage', ['uses' => 'NewsController@manage'])->name('news.manage');
+    Route::get('/delete/{id}', ['uses' => 'NewsController@destroy'])->name('news.destroy');
+    Route::get('/edit/{id}', ['uses' => 'NewsController@edit'])->name('news.edit');
+
+    // POST
+    Route::post('/', ['uses' => 'NewsController@store'])->name('news.store');
+    Route::post('/{id}', ['uses' => 'NewsController@update'])->name('news.update');
+
+
 });
