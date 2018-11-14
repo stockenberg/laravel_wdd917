@@ -18,6 +18,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('manage-news', require('./components/news/ManageNews.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 

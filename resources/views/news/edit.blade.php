@@ -16,7 +16,6 @@
     <form action="{{route('news.update', ['id' => $news->id])}}" method="post" role="form" enctype="multipart/form-data">
 
         {{csrf_field()}}
-
         <legend>Form Title</legend>
 
         <div class="form-group">

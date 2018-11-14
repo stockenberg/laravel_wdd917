@@ -27,3 +27,11 @@ Route::group(['prefix' => 'news'], function () {
 
 
 });
+
+Route::group(['prefix' => 'vue'], function () {
+    Route::group(['prefix' => 'news'], function () {
+        Route::get('/', function () {
+            return view('news_vue.index');
+        })->name('vue.news.create');
+    });
+});
