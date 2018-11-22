@@ -13,7 +13,7 @@
 
 /** Roles: 1 = admin, 2 = author, 3 = user */
 
-Route::get('/', ['uses' => 'NewsController@index', 'middleware' => 'roles:1,3'])->name('home');
+Route::get('/', ['uses' => 'NewsController@index'])->name('home');
 
 Route::group(['prefix' => 'news'], function () {
 
