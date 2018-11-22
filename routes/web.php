@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', ['uses' => 'NewsController@index'])->name('home');
+/** Roles: 1 = admin, 2 = author, 3 = user */
+
+Route::get('/', ['uses' => 'NewsController@index', 'middleware' => 'roles:1,3'])->name('home');
 
 Route::group(['prefix' => 'news'], function () {
 
@@ -35,3 +37,7 @@ Route::group(['prefix' => 'vue'], function () {
         })->name('vue.news.create');
     });
 });
+
+Auth::routes();
+// Route::get('/login', ['uses' => 'Auth\LoginController@showLoginForm'])->name('login');
+Route::get('/home', 'HomeController@index')->name('home');
